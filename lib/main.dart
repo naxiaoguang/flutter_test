@@ -78,24 +78,50 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Transform.scale(
-          scale: 0.5,
-          alignment: Alignment.topLeft,
-          child: SizedBox(
-            width: 800,
-            height: 800,
-            child: DecoratedBox(
-                decoration: BoxDecoration(color: Color(0xffffffff), boxShadow: [
+        scale: 0.96,
+        alignment: Alignment.center,
+        child: DecoratedBox(
+            decoration: BoxDecoration(
+                color: Color(0xffffffff),
+                border: Border.all(color: Colors.red),
+                boxShadow: [
                   BoxShadow(
                       color: Color(0x33333333),
                       spreadRadius: 2.0,
                       blurRadius: 2.0),
                 ]),
-                child: SizedBox(
-                  width: 800,
-                  height: 800,
-                  child: Text('SizedBox`s decoration width is not 800 , not the effect I expected', style: TextStyle(color: Colors.red, fontSize: 40),),
-                )),
-          )),
+            child: SizedBox(
+                width: 800 * 0.5,
+                height: 800 * 0.5,
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                        top: 10 * 0.5,
+                        left: 10 * 0.5,
+                        child: Text(
+                          'SizedBox`s decoration width is not 800 , not the effect I expected',
+                          style:
+                              TextStyle(color: Colors.red, fontSize: 20 * 0.5),
+                        )),
+                    Positioned(
+                        top: 40 * 0.5,
+                        left: 10 * 0.5,
+                        child: Text(
+                          'SizedBox`s decoration width is not 800 , not the effect I expected',
+                          style:
+                              TextStyle(color: Colors.red, fontSize: 16 * 0.5),
+                        )),
+                    Positioned(
+                        top: 760 * 0.5,
+                        left: 10 * 0.5,
+                        child: Text(
+                          'top is 800 in page data',
+                          style:
+                              TextStyle(color: Colors.red, fontSize: 16 * 0.5),
+                        ))
+                  ],
+                ))),
+      ),
     );
   }
 }
